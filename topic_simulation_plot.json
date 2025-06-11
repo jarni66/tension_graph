@@ -1,0 +1,586 @@
+[
+    {
+        "topic": "early access authorization",
+        "count": 11,
+        "relation": [
+            "clinical trial data",
+            "clinical trials",
+            "drug efficacy",
+            "duchenne muscular dystrophy",
+            "medical necessity",
+            "medical need",
+            "treatment alternatives",
+            "vamorolone evaluation"
+        ],
+        "description": "Refusal of authorization for early access to AGAMREE (vamorolone) for the treatment of Duchenne Muscular Dystrophy (DMD).\nDiscussion on the request for early access to the medication AGAMREE (VAMOROLONE)."
+    },
+    {
+        "topic": "duchenne muscular dystrophy",
+        "count": 56,
+        "relation": [
+            "access to early treatment",
+            "access to treatment",
+            "alternative treatments",
+            "clinical trial data",
+            "clinical trials",
+            "corticosteroid therapy",
+            "corticosteroids",
+            "early access authorization",
+            "family impact",
+            "financial burden",
+            "impact on quality of life",
+            "medical necessity",
+            "medical need",
+            "mobility challenges",
+            "patient experiences",
+            "patient impact",
+            "patient perspectives",
+            "quality of life",
+            "research and development",
+            "research and development of new drugs",
+            "treatment alternatives",
+            "treatment efficacy",
+            "vamorolone",
+            "vamorolone (agamree)",
+            "vamorolone evaluation"
+        ],
+        "description": "A severe, rare, and debilitating genetic condition characterized by progressive muscle degeneration.\nA progressive muscle-wasting condition impacting daily life and requiring ongoing care.\nThe condition being treated and its implications for treatment options.\nA severe, rare, and debilitating genetic neuromuscular disease affecting muscle function.\nA progressive muscle disorder affecting the skeletal and cardiac muscles.\nDetails on the condition treated by VAMOROLONE and its implications."
+    },
+    {
+        "topic": "clinical trials",
+        "count": 13,
+        "relation": [
+            "adverse effects",
+            "drug efficacy",
+            "duchenne muscular dystrophy",
+            "early access authorization",
+            "efficacy evaluation",
+            "medical need",
+            "regulatory decision",
+            "treatment alternatives",
+            "vamorolone (agamree)"
+        ],
+        "description": "Research studies to evaluate the efficacy and safety of vamorolone compared to other corticosteroids.\nInvestigations comparing the effectiveness of Vamorolone to existing treatments."
+    },
+    {
+        "topic": "medical need",
+        "count": 8,
+        "relation": [
+            "clinical trials",
+            "duchenne muscular dystrophy",
+            "early access authorization",
+            "patient impact",
+            "regulatory decision",
+            "treatment alternatives"
+        ],
+        "description": "Discussion on the unmet medical needs regarding the treatment of DMD and current available therapies.\nThe unmet need for effective therapies that can stabilize or reverse disease progression."
+    },
+    {
+        "topic": "treatment alternatives",
+        "count": 16,
+        "relation": [
+            "clinical trials",
+            "corticosteroid therapy",
+            "drug efficacy",
+            "duchenne muscular dystrophy",
+            "early access authorization",
+            "medical need",
+            "safety profile",
+            "vamorolone",
+            "vamorolone (agamree)"
+        ],
+        "description": "Consideration of available treatment options, including corticosteroids such as prednisone and prednisolone.\nDiscussion about alternative therapies to corticosteroids.\nExisting therapies, primarily corticosteroids, providing benefits for managing Duchenne Muscular Dystrophy."
+    },
+    {
+        "topic": "drug efficacy",
+        "count": 7,
+        "relation": [
+            "adverse effects",
+            "clinical trials",
+            "early access authorization",
+            "treatment alternatives"
+        ],
+        "description": "Assessment of the effectiveness of vamorolone and its comparison with existing treatments."
+    },
+    {
+        "topic": "patient impact",
+        "count": 4,
+        "relation": [
+            "duchenne muscular dystrophy",
+            "medical need"
+        ],
+        "description": "Consideration of how DMD affects the quality of life and progression in patients."
+    },
+    {
+        "topic": "adverse effects",
+        "count": 6,
+        "relation": [
+            "clinical trials",
+            "drug efficacy"
+        ],
+        "description": "Discussion of potential side effects observed during clinical trials with vamorolone."
+    },
+    {
+        "topic": "corticosteroids",
+        "count": 11,
+        "relation": [
+            "duchenne muscular dystrophy",
+            "side effects management",
+            "treatment efficacy"
+        ],
+        "description": "Medications used for managing DMD, associated with various side effects and benefits."
+    },
+    {
+        "topic": "access to treatment",
+        "count": 11,
+        "relation": [
+            "clinical trial data",
+            "duchenne muscular dystrophy",
+            "financial burden",
+            "patient experiences",
+            "patient perspectives",
+            "post-authorization review",
+            "quality of life"
+        ],
+        "description": "Discussion on early access and reimbursement processes for new therapies.\nDiscussion on the accessibility of AGAMREE and early access treatment options."
+    },
+    {
+        "topic": "quality of life",
+        "count": 7,
+        "relation": [
+            "access to treatment",
+            "duchenne muscular dystrophy",
+            "family impact",
+            "financial burden",
+            "patient experiences"
+        ],
+        "description": "Effects of DMD on physical and emotional well-being of patients and families."
+    },
+    {
+        "topic": "family impact",
+        "count": 5,
+        "relation": [
+            "duchenne muscular dystrophy",
+            "financial burden",
+            "patient experiences",
+            "quality of life"
+        ],
+        "description": "Effects of DMD on family dynamics, parental employment, and caregiving responsibilities."
+    },
+    {
+        "topic": "financial burden",
+        "count": 4,
+        "relation": [
+            "access to treatment",
+            "duchenne muscular dystrophy",
+            "family impact",
+            "patient experiences",
+            "quality of life"
+        ],
+        "description": "Economic implications of treatment and care needs for DMD patients."
+    },
+    {
+        "topic": "patient experiences",
+        "count": 12,
+        "relation": [
+            "access to treatment",
+            "duchenne muscular dystrophy",
+            "family impact",
+            "financial burden",
+            "impact on quality of life",
+            "mobility challenges",
+            "quality of life",
+            "support for caregivers"
+        ],
+        "description": "Firsthand accounts from families regarding treatment effects and quality of life.\nTestimonies from patients and families regarding treatment efficacy and side effects."
+    },
+    {
+        "topic": "research and development",
+        "count": 3,
+        "relation": [
+            "corticosteroids",
+            "duchenne muscular dystrophy",
+            "treatment efficacy"
+        ],
+        "description": "Investigations into new therapies like Agamree as alternatives to steroids."
+    },
+    {
+        "topic": "side effects management",
+        "count": 8,
+        "relation": [
+            "clinical trial data",
+            "corticosteroid therapy",
+            "corticosteroids",
+            "patient perspectives",
+            "treatment efficacy"
+        ],
+        "description": "Concerns related to managing adverse effects associated with corticosteroids.\nConsiderations and discussions on managing side effects of treatments."
+    },
+    {
+        "topic": "treatment efficacy",
+        "count": 3,
+        "relation": [
+            "corticosteroids",
+            "duchenne muscular dystrophy",
+            "research and development",
+            "side effects management"
+        ],
+        "description": "Evaluation of effectiveness of current and new treatments in DMD management."
+    },
+    {
+        "topic": "post-authorization review",
+        "count": 13,
+        "relation": [
+            "access to treatment",
+            "clinical trial data",
+            "commission decisions"
+        ],
+        "description": "Discussion regarding the post-authorization review for AGAMREE 40 mg/mL."
+    },
+    {
+        "topic": "vamorolone",
+        "count": 10,
+        "relation": [
+            "corticosteroid therapy",
+            "duchenne muscular dystrophy",
+            "treatment alternatives"
+        ],
+        "description": "The drug being evaluated, its effects, dosages, and comparisons with corticosteroids."
+    },
+    {
+        "topic": "corticosteroid therapy",
+        "count": 8,
+        "relation": [
+            "duchenne muscular dystrophy",
+            "side effects management",
+            "treatment alternatives",
+            "vamorolone"
+        ],
+        "description": "Comparison of corticosteroids like prednisone and their effects on growth and quality of life."
+    },
+    {
+        "topic": "clinical trial data",
+        "count": 8,
+        "relation": [
+            "access to treatment",
+            "duchenne muscular dystrophy",
+            "early access authorization",
+            "health authority decisions",
+            "post-authorization review",
+            "side effects management",
+            "vamorolone evaluation"
+        ],
+        "description": "References to data from clinical trials and their significance in evaluations.\nInsufficiency of clinical data for VAMOROLONE compared to corticosteroids."
+    },
+    {
+        "topic": "patient perspectives",
+        "count": 3,
+        "relation": [
+            "access to treatment",
+            "duchenne muscular dystrophy",
+            "side effects management"
+        ],
+        "description": "The impact of treatment on patients and family expectations."
+    },
+    {
+        "topic": "commission decisions",
+        "count": 5,
+        "relation": [
+            "access to treatment",
+            "post-authorization review"
+        ],
+        "description": "Outcomes of the commission's decisions regarding treatment approvals."
+    },
+    {
+        "topic": "vamorolone (agamree)",
+        "count": 9,
+        "relation": [
+            "clinical trials",
+            "duchenne muscular dystrophy",
+            "efficacy evaluation",
+            "safety profile"
+        ],
+        "description": "A new treatment evaluated for effectiveness in Duchenne Muscular Dystrophy, with mixed results."
+    },
+    {
+        "topic": "regulatory decision",
+        "count": 4,
+        "relation": [
+            "clinical trials",
+            "efficacy evaluation",
+            "medical need",
+            "safety profile"
+        ],
+        "description": "The refusal of early access authorization for Vamorolone by the Health Authority."
+    },
+    {
+        "topic": "safety profile",
+        "count": 4,
+        "relation": [
+            "efficacy evaluation",
+            "regulatory decision",
+            "vamorolone (agamree)"
+        ],
+        "description": "Evaluations of the side effects and tolerance related to Vamorolone compared to corticosteroids."
+    },
+    {
+        "topic": "efficacy evaluation",
+        "count": 3,
+        "relation": [
+            "clinical trials",
+            "regulatory decision",
+            "safety profile",
+            "vamorolone (agamree)"
+        ],
+        "description": "Assessment of the claimed benefits and effectiveness of using Vamorolone in patients."
+    },
+    {
+        "topic": "long-term outcomes",
+        "count": 2,
+        "relation": [
+            "duchenne muscular dystrophy",
+            "treatment alternatives"
+        ],
+        "description": "Data regarding the management of Duchenne Muscular Dystrophy over extended periods."
+    },
+    {
+        "topic": "impact on quality of life",
+        "count": 14,
+        "relation": [
+            "duchenne muscular dystrophy",
+            "financial impacts on families",
+            "patient experiences",
+            "support for caregivers"
+        ],
+        "description": "Effects of the disease on daily living, including physical limitations and psychological impacts."
+    },
+    {
+        "topic": "corticosteroid treatments",
+        "count": 15,
+        "relation": [
+            "behavioral side effects",
+            "cataract development",
+            "clinical studies",
+            "duchenne muscular dystrophy",
+            "effects of corticosteroids on growth",
+            "public perception of corticosteroids",
+            "quality of treatment monitoring",
+            "risk-benefit analysis",
+            "side effects",
+            "vamorolone evaluation"
+        ],
+        "description": "Current treatments for DMD and their effects, including benefits and side effects.\nReview of corticosteroid treatments currently used for Duchenne muscular dystrophy and their associated risks."
+    },
+    {
+        "topic": "financial impacts on families",
+        "count": 6,
+        "relation": [
+            "impact on quality of life",
+            "patient experiences",
+            "support for caregivers"
+        ],
+        "description": "Economic burdens faced by families due to the disease and treatment costs."
+    },
+    {
+        "topic": "research and development of new drugs",
+        "count": 5,
+        "relation": [
+            "access to early treatment",
+            "clinical trial participation",
+            "corticosteroid treatments",
+            "duchenne muscular dystrophy"
+        ],
+        "description": "The need for innovative treatments with reduced side effects compared to current therapies."
+    },
+    {
+        "topic": "access to early treatment",
+        "count": 5,
+        "relation": [
+            "corticosteroid treatments",
+            "duchenne muscular dystrophy",
+            "research and development of new drugs"
+        ],
+        "description": "Criteria and arguments for priorities in providing access to new medications."
+    },
+    {
+        "topic": "public perception of corticosteroids",
+        "count": 4,
+        "relation": [
+            "corticosteroid treatments"
+        ],
+        "description": "Concerns about the stigma and potential side effects associated with corticosteroid use."
+    },
+    {
+        "topic": "support for caregivers",
+        "count": 4,
+        "relation": [
+            "financial impacts on families",
+            "impact on quality of life",
+            "patient experiences"
+        ],
+        "description": "The need for resources and assistance for family caregivers."
+    },
+    {
+        "topic": "effects of corticosteroids on growth",
+        "count": 3,
+        "relation": [
+            "behavioral side effects",
+            "corticosteroid treatments"
+        ],
+        "description": "Impact of treatment on growth and development during adolescence."
+    },
+    {
+        "topic": "behavioral side effects",
+        "count": 3,
+        "relation": [
+            "corticosteroid treatments",
+            "effects of corticosteroids on growth"
+        ],
+        "description": "Incidence of psychological issues related to corticosteroid use."
+    },
+    {
+        "topic": "mobility challenges",
+        "count": 3,
+        "relation": [
+            "duchenne muscular dystrophy",
+            "patient experiences"
+        ],
+        "description": "Challenges faced by patients in mobility and daily activities."
+    },
+    {
+        "topic": "quality of treatment monitoring",
+        "count": 2,
+        "relation": [
+            "corticosteroid treatments"
+        ],
+        "description": "Importance of monitoring patient experiences to inform treatment decisions."
+    },
+    {
+        "topic": "evolution of treatment practices",
+        "count": 2,
+        "relation": [
+            "research and development of new drugs"
+        ],
+        "description": "Changes in response to clinical evidence regarding treatment efficacy."
+    },
+    {
+        "topic": "clinical trial participation",
+        "count": 2,
+        "relation": [
+            "research and development of new drugs"
+        ],
+        "description": "Considerations for patients participating in clinical trials for new treatments."
+    },
+    {
+        "topic": "cataract development",
+        "count": 1,
+        "relation": [
+            "corticosteroid treatments"
+        ],
+        "description": "Emerging risks of cataract formation as a side effect of corticosteroids."
+    },
+    {
+        "topic": "vamorolone evaluation",
+        "count": 12,
+        "relation": [
+            "clinical studies",
+            "clinical trial data",
+            "corticosteroid treatments",
+            "duchenne muscular dystrophy",
+            "early access authorization",
+            "regulatory concerns",
+            "risk-benefit analysis"
+        ],
+        "description": "Discussion on the evaluation process and effectiveness of VAMOROLONE in treating Duchenne muscular dystrophy.\nAssessment of the effectiveness and safety of the medication VAMOROLONE for treating Duchenne muscular dystrophy."
+    },
+    {
+        "topic": "clinical studies",
+        "count": 5,
+        "relation": [
+            "corticosteroid treatments",
+            "patient contributions",
+            "regulatory concerns",
+            "vamorolone evaluation"
+        ],
+        "description": "Details about clinical trials and studies conducted to assess the efficacy of VAMOROLONE."
+    },
+    {
+        "topic": "patient contributions",
+        "count": 4,
+        "relation": [
+            "clinical studies"
+        ],
+        "description": "Input and concerns raised by patient advocacy groups regarding treatment options and patient experiences."
+    },
+    {
+        "topic": "regulatory concerns",
+        "count": 3,
+        "relation": [
+            "clinical studies",
+            "corticosteroid treatments",
+            "vamorolone evaluation"
+        ],
+        "description": "Discussion on regulatory frameworks and approvals related to treatments for Duchenne muscular dystrophy."
+    },
+    {
+        "topic": "side effects",
+        "count": 4,
+        "relation": [
+            "corticosteroid treatments",
+            "risk-benefit analysis"
+        ],
+        "description": "Concerns about side effects associated with both VAMOROLONE and corticosteroids."
+    },
+    {
+        "topic": "risk-benefit analysis",
+        "count": 3,
+        "relation": [
+            "corticosteroid treatments",
+            "side effects",
+            "vamorolone evaluation"
+        ],
+        "description": "Analysis of the benefits versus risks of using VAMOROLONE and corticosteroids."
+    },
+    {
+        "topic": "growth and development issues",
+        "count": 3,
+        "relation": [],
+        "description": "Concerns regarding the impact of treatments on growth and puberty in children with Duchenne muscular dystrophy."
+    },
+    {
+        "topic": "error rectification",
+        "count": 6,
+        "relation": [],
+        "description": "Correction of material errors in previous health authority decisions."
+    },
+    {
+        "topic": "health authority decisions",
+        "count": 4,
+        "relation": [
+            "clinical trial data",
+            "early access authorization",
+            "medical necessity"
+        ],
+        "description": "Decisions made by the Haute Autorit\u00e9 de sant\u00e9 regarding medication approvals."
+    },
+    {
+        "topic": "medical necessity",
+        "count": 2,
+        "relation": [
+            "alternative treatments",
+            "duchenne muscular dystrophy",
+            "early access authorization",
+            "health authority decisions"
+        ],
+        "description": "Analysis of unmet medical needs in treating Duchenne muscular dystrophy."
+    },
+    {
+        "topic": "alternative treatments",
+        "count": 2,
+        "relation": [
+            "duchenne muscular dystrophy",
+            "medical necessity"
+        ],
+        "description": "Discussion on existing treatments (corticosteroids) for Duchenne muscular dystrophy."
+    }
+]

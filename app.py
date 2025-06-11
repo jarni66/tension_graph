@@ -9,117 +9,157 @@ import os
 app = Flask(__name__)
 
 def generate_graph():
-    # Read the JSON data
-    with open('clustered_card_all.json', 'r') as file:
-        data = json.load(file)
+    # Load topics data
+    with open('topic_simulation_plot.json', 'r') as file:
+        topics_data = json.load(file)
 
-    # Create a set of all drug names to ensure uniqueness
-    drug_names = set(item['drug_generic_name'] for item in data)
+    # Create a dictionary for quick lookup of topic descriptions
+    topic_descriptions_map = {item['topic']: item.get('description', 'No description available.') for item in topics_data}
 
-    # Get unique clusters and create color mapping
-    clusters = set()
-    for item in data:
-        for result in item['result']:
-            clusters.add(result['cluster'])
+    # Load topic classification data (assuming this file exists)
+    # Replace 'topic_classes.json' with your actual file name if different
+    try:
+        with open('topic_simulation_class.json', 'r') as file:
+            topic_classes = json.load(file)
+    except FileNotFoundError:
+        print("Warning: topic_classes.json not found. Nodes will default to 'other' class color.")
+        topic_classes = {"tension_points": [], "decision_points": [], "negotiation_points": []}
 
-    # Generate distinct colors for each cluster
+    # --- Define Colors for Classes ---
+    CLASS_COLORS = {
+        "tension_points": "#FF7F7F",  # Light Red
+        "decision_points": "#7FBFFF", # Light Blue
+        "negotiation_points": "#7FFF7F", # Light Green
+        "other": "#D3D3D3"        # Light Grey for uncategorized nodes
+    }
+
+    # --- Helper function to determine node color based on class ---
+    def get_node_color_by_class(topic_name, classes_data):
+        if topic_name in classes_data.get("tension_points", []):
+            return CLASS_COLORS["tension_points"], "Tension Point"
+        elif topic_name in classes_data.get("decision_points", []):
+            return CLASS_COLORS["decision_points"], "Decision Point"
+        elif topic_name in classes_data.get("negotiation_points", []):
+            return CLASS_COLORS["negotiation_points"], "Negotiation Point"
+        else:
+            return CLASS_COLORS["other"], "Other Topic"
+
+    # --- Helper function to generate distinct colors (no longer needed for nodes, but kept if user wants to revert) ---
     def generate_colors(n):
         colors = []
         for i in range(n):
             hue = i / n
-            saturation = 0.3 + random.random() * 0.2  # Light colors
-            value = 0.9 + random.random() * 0.1  # Bright colors
-            rgb = colorsys.hsv_to_rgb(hue, saturation, value)
-            hex_color = '#{:02x}{:02x}{:02x}'.format(
-                int(rgb[0] * 255),
-                int(rgb[1] * 255),
-                int(rgb[2] * 255)
-            )
+            saturation = 0.7
+            lightness = 0.7
+            r, g, b = [int(x * 255) for x in colorsys.hsv_to_rgb(hue, saturation, lightness)]
+            hex_color = '#{:02x}{:02x}{:02x}'.format(r, g, b)
             colors.append(hex_color)
         return colors
 
-    cluster_colors = dict(zip(clusters, generate_colors(len(clusters))))
+    # Collect all unique topics (still useful for ensuring all nodes are processed)
+    all_unique_topics = set()
+    for item in topics_data:
+        all_unique_topics.add(item['topic'])
+        for rel_topic in item['relation']:
+            all_unique_topics.add(rel_topic)
 
-    # Create a network graph
-    net = Network(height='750px', width='100%', bgcolor='#ffffff', font_color='#333')
+    # Create a network graph object
+    net = Network(height='750px', width='100%', bgcolor='#ffffff', font_color='#333', notebook=True)
 
-    # Configure physics layout for more spacing
+    # Configure physics layout for better spacing and visual appeal
     net.barnes_hut(
-        gravity=-15000,
-        central_gravity=0.3,
-        spring_length=200,
-        spring_strength=0.04,
-        damping=0.09,
+        gravity=-1000,
+        central_gravity=0.1,
+        spring_length=300,
+        spring_strength=0.01,
+        damping=0.5,
         overlap=0.1
     )
 
-    net.show_buttons(filter_=['physics'])
+    # Add nodes and edges to the graph
+    added_nodes = set() # Keep track of nodes already added to avoid duplicates
 
-    # Add main drug nodes
-    for item in data:
-        drug_name = item['drug_generic_name']
-        is_fit = item.get('fit', False)  # Get fit value, default to False if not present
-        
-        # Adjust size and border based on fit value
-        node_size = 60 if is_fit else 40  # Bigger size for fit=True
-        border_color = '#000000' if is_fit else '#FF69B4'  # Black border for fit=True
-        border_width = 4 if is_fit else 3  # Thicker border for fit=True
-        
-        # Add main drug node with conditional styling
-        net.add_node(drug_name, 
-                     label=drug_name, 
-                     size=node_size, 
-                     color={
-                         'background': '#FFB6C1',  # Light pink/red
-                         'border': border_color,
-                     },
-                     borderWidth=border_width,
-                     title=f"{drug_name}\nFit: {is_fit}",
-                     font={'size': 16, 'bold': True})
-        
-        # Add topic nodes and connections
-        for result in item['result']:
-            topic = result['topic']
-            # Skip if topic is actually a drug name
-            if topic in drug_names:
-                continue
-                
-            count = result['count']
-            cluster = result['cluster']
-            
-            # Add topic node with cluster-specific color and size based on count
-            node_size = count * 10  # Multiply count by 10 to make size differences more visible
-            label_text = topic[:20] if len(topic) > 20 else topic
-            net.add_node(topic, 
-                        label=label_text, 
-                        size=node_size, 
-                        color=cluster_colors[cluster],
-                        title=f"Topic: {topic}\nCount: {count}\nCluster: {cluster}")
-            
-            # Connect drug to topic with black edges of fixed width
-            net.add_edge(drug_name, topic, 
-                        color='black',
-                        title=f"Count: {count}")
+    for topic_data in topics_data:
+        main_topic = topic_data['topic']
+        count = topic_data['count']
+        relations = topic_data['relation']
+        description = topic_descriptions_map.get(main_topic, 'No description available.') # Get description
 
-    # Add legend for clusters and fit status
+        # Determine color and class name based on class
+        node_color, node_class_name = get_node_color_by_class(main_topic, topic_classes)
+
+        # Add the main topic node
+        if main_topic not in added_nodes:
+            node_size = max(15, count * 1.8)
+            net.add_node(main_topic,
+                        label=main_topic,
+                        size=node_size,
+                        color={'background': node_color, 'border': '#666666'},
+                        title=f"Topic: {main_topic}\nClass: {node_class_name}\nCount: {count}\nDescription: {description}",
+                        font={'size': 14, 'bold': True},
+                        physics=True)
+            added_nodes.add(main_topic)
+
+        # Add related topic nodes and edges
+        for related_topic in relations:
+            # Ensure the related topic node exists
+            if related_topic not in added_nodes:
+                # Determine color and class name for related topic
+                related_node_color, related_node_class_name = get_node_color_by_class(related_topic, topic_classes)
+                related_description = topic_descriptions_map.get(related_topic, 'No description available.') # Get description
+
+                related_topic_info = next((item for item in topics_data if item['topic'] == related_topic), None)
+                related_count = related_topic_info['count'] if related_topic_info else 10
+                node_size_related = max(10, related_count * 1.5)
+
+                net.add_node(related_topic,
+                            label=related_topic,
+                            size=node_size_related,
+                            color={'background': related_node_color, 'border': '#666666'},
+                            title=f"Topic: {related_topic}\nClass: {related_node_class_name}\nDescription: {related_description}\n(Related)",
+                            font={'size': 12},
+                            physics=True)
+                added_nodes.add(related_topic)
+
+            # Add an edge between the main topic and the related topic
+            net.add_edge(main_topic, related_topic,
+                        color='#666666',
+                        width=1.5)
+
+    # Add a simple legend to the HTML output
     legend_html = """
-    <div style="position: absolute; top: 10px; right: 10px; background: white; padding: 10px; border: 1px solid #ccc;">
+    <div style="position: absolute; top: 10px; right: 10px; background: white; padding: 10px; border: 1px solid #ccc; font-family: sans-serif; font-size: 14px;">
         <h3>Legend</h3>
-        <div style="margin-bottom: 10px;">
-            <h4>Drug Node Types:</h4>
-            <div><span style="display: inline-block; width: 20px; height: 20px; background: #FFB6C1; border: 4px solid #000; margin-right: 5px;"></span>Fit Drug (Larger)</div>
-            <div><span style="display: inline-block; width: 20px; height: 20px; background: #FFB6C1; border: 3px solid #FF69B4; margin-right: 5px;"></span>Regular Drug</div>
+        <p><strong>Node Size:</strong> Represents the 'count' of the topic (larger node = higher count).</p>
+        <div style="display: flex; align-items: center; margin-bottom: 5px;">
+            <div style="width: 20px; height: 20px; border-radius: 50%; background-color: #CCEEFF; border: 1px solid #888; margin-right: 5px; flex-shrink: 0;"></div>
+            <p style="margin: 0;">Smaller count example</p>
         </div>
-        <div>
-            <h4>Clusters:</h4>
+        <div style="display: flex; align-items: center;">
+            <div style="width: 40px; height: 40px; border-radius: 50%; background-color: #CCEEFF; border: 1px solid #888; margin-right: 5px; flex-shrink: 0;"></div>
+            <p style="margin: 0;">Larger count example</p>
+        </div>
+        <p><strong>Node Color by Class:</strong></p>
+        <div style="display: flex; align-items: center; margin-bottom: 5px;">
+            <div style="width: 20px; height: 20px; border-radius: 50%; background-color: #FF7F7F; border: 1px solid #888; margin-right: 5px; flex-shrink: 0;"></div>
+            <p style="margin: 0;">Tension Points</p>
+        </div>
+        <div style="display: flex; align-items: center; margin-bottom: 5px;">
+            <div style="width: 20px; height: 20px; border-radius: 50%; background-color: #7FBFFF; border: 1px solid #888; margin-right: 5px; flex-shrink: 0;"></div>
+            <p style="margin: 0;">Decision Points</p>
+        </div>
+        <div style="display: flex; align-items: center; margin-bottom: 5px;">
+            <div style="width: 20px; height: 20px; border-radius: 50%; background-color: #7FFF7F; border: 1px solid #888; margin-right: 5px; flex-shrink: 0;"></div>
+            <p style="margin: 0;">Negotiation Points</p>
+        </div>
+        <div style="display: flex; align-items: center; margin-bottom: 5px;">
+            <div style="width: 20px; height: 20px; border-radius: 50%; background-color: #D3D3D3; border: 1px solid #888; margin-right: 5px; flex-shrink: 0;"></div>
+            <p style="margin: 0;">Other Topics</p>
+        </div>
+        <p><strong>Edge:</strong> Represents a 'relation' between two topics.</p>
+    </div>
     """
-    for cluster, color in cluster_colors.items():
-        legend_html += f'<div><span style="display: inline-block; width: 20px; height: 20px; background: {color}; margin-right: 5px;"></span>{cluster}</div>'
-    legend_html += "</div></div>"
-
-    # Save with legend
-    net.html = net.html.replace("</body>", f"{legend_html}</body>")
-    net.save_graph('network_graph.html')
+    net.save_graph('topic_network_graph.html') 
 
 @app.route('/')
 def serve_graph():
