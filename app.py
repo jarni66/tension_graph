@@ -159,7 +159,7 @@ def generate_graph():
         <p><strong>Edge:</strong> Represents a 'relation' between two topics.</p>
     </div>
     """
-    net.save_graph('topic_network_graph.html') 
+    net.save_graph('network_graph.html') 
 
 @app.route('/')
 def serve_graph():
