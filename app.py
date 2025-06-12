@@ -28,8 +28,8 @@ def generate_graph():
     # --- Define Colors for Classes ---
     CLASS_COLORS = {
         "tension_points": "#FF7F7F",  # Light Red
-        "decision_points": "#7FBFFF", # Light Blue
-        "negotiation_points": "#7FFF7F", # Light Green
+        "decision_points": "#7FFF7F", # Light Blue
+        "negotiation_points": "##FFA500", # Light Green
         "other": "#D3D3D3"        # Light Grey for uncategorized nodes
     }
 
